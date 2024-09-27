@@ -39,15 +39,15 @@ The following sections describe these files and then show the actual calculation
 Description of main program
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ``booth.py``, a class for the direct problem solver is defined using 2DMAT-Functions module that evaluates Booth function.
+In ``booth.py``, a class for the direct problem solver is defined using ODAT-SE-template module that evaluates Booth function.
 The entire program is shown as follows:
 
 .. code-block:: python
 
     import numpy as np
-    import py2dmat.extra.function
+    import odatse.extra.template
 
-    class Booth(py2dmat.extra.function.Solver):
+    class Booth(odatse.extra.template.Solver):
         def evaluate(self, xs: np.ndarray, args=()):
             assert xs.shape[0] == 2
             x, y = xs
@@ -55,9 +55,9 @@ The entire program is shown as follows:
             return fx
 
 First, the required modules are imported.
-``py2dmat.extra.function`` corresponds to 2DMAT-Functions module.
+``odatse.extra.template`` corresponds to ODAT-SE-template module.
 
-Next, ``Booth`` class is defined as derived from ``Solver`` class of 2DMAT-Functions.
+Next, ``Booth`` class is defined as derived from ``Solver`` class of ODAT-SE-template.
 The direct problem solver class must have a method called ``evaluate`` which have the form ``evaluate(self, xs, args) -> float``.
 The arguments of this method are:
 ``xs`` of ``numpy.ndarray`` type for the parameter values, and ``args`` of ``Tuple`` type for the optional data that consists of the step count ``step`` and the iteration count ``set`` used in the class accordingly.
@@ -68,13 +68,13 @@ The arguments of this method are:
 
     import numpy as np
 
-    import py2dmat
-    import py2dmat.algorithm.min_search as min_search
+    import odatse
+    import odatse.algorithm.min_search as min_search
     from booth import Booth
 
-    info = py2dmat.Info.from_file("input.toml")
+    info = odatse.Info.from_file("input.toml")
     solver = Booth(info)
-    runner = py2dmat.Runner(solver, info)
+    runner = odatse.Runner(solver, info)
 
     alg = min_search.Algorithm(info, runner)
     alg.main()
@@ -82,7 +82,7 @@ The arguments of this method are:
 
 In the program, the instances of the classes are created.
 
-- ``py2dmat.Info`` class
+- ``odatse.Info`` class
 
   This class is for storing the parameters.
   An instance is created by calling a class method ``from_file`` with a path to TOML file as an argument.
@@ -91,12 +91,12 @@ In the program, the instances of the classes are created.
 
   Booth class is imported from ``booth.py`` as introduced above, and is instantiated.
 
-- ``py2dmat.Runner`` class
+- ``odatse.Runner`` class
 
   This class is for connecting the direct problem solver and the inverse problem algorithm.
   An instance is created by passing an instance of Solver class and an instance of Info class.
 
-- ``py2dmat.algorithm.min_search.Algorithm`` class
+- ``odatse.algorithm.min_search.Algorithm`` class
 
   This class is for the inverse problem algorithm.
   In this tutorial, we use ``min_search`` module that implements the optimization by Nelder-Mead method.

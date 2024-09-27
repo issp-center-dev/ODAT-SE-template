@@ -10,27 +10,27 @@
         - tomli (>= 1.2)
         - numpy (>= 1.14)
 
-- py2dmat version 3.0 以降
+- ODAT-SE version 3.0 以降
 
 
 ダウンロード・インストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. py2dmat をインストールする
+1. ODAT-SE をインストールする
 
    - ソースコードからのインストール
 
-     リポジトリから py2dmat のソースファイルを取得します。
+     リポジトリから ODAT-SE のソースファイルを取得します。
 
      .. code-block:: bash
 
-	$ git clone -b update https://github.com/issp-center-dev/2DMAT.git
+	$ git clone -b update https://github.com/issp-center-dev/ODAT-SE.git
 
      pip コマンドを実行してインストールします。
 
      .. code-block:: bash
 
-	$ cd 2DMAT
+	$ cd ODAT-SE
 	$ python3 -m pip install .
 
 	
@@ -38,35 +38,36 @@
 	    
      ``python3 -m pip install .[all]`` を実行するとオプションのパッケージも同時にインストールします。
 	  
-2. py2dmat-functions をインストールする
+2. ODAT-SE-template をインストールする
 
    - ソースコードからのインストール
 
-     py2dmat-functions のソースファイルは、現在は py2dmat のソースパッケージの extra ディレクトリ内に配置されています。1. に記述した手順に従って py2dmat のソースファイルを取得した後、 ``extra/function`` ディレクトリ内で pip コマンドを実行してインストールします。
+     ODAT-SE-template のソースファイルは GitHub リポジトリから取得できます。リポジトリをクローンしてソースファイルを取得した後、pip コマンドを実行してインストールします。
 
      .. code-block:: bash
 
-	$ cd 2DMAT/extra/function
+	$ git clone https://github.com/issp-center-dev/ODAT-SE-template.git
+	$ cd ODAT-SE-template
 	$ python3 -m pip install .
 
      ``--user`` オプションを付けるとローカル (``$HOME/.local``) にインストールできます。
 	    
-     2DMAT-Functions のライブラリがインストールされます。
+     ODAT-SE-template のライブラリがインストールされます。
 
 
 実行方法
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2DMAT では順問題ソルバと逆問題解析アルゴリズムを組み合わせて解析を行います。
-2DMAT-Functions に用意された関数の最適化問題の解析を行うには、2DMAT-Functions ライブラリと 2DMAT フレームワークを用いてプログラムを作成し、解析を行います。逆問題解析アルゴリズムは import するモジュールで選択します。プログラム中に入力データの生成を組み込むなど、柔軟な使い方ができます。
+ODAT-SE では順問題ソルバと逆問題解析アルゴリズムを組み合わせて解析を行います。
+ODAT-SE-template に用意された関数の最適化問題の解析を行うには、ODAT-SE-template ライブラリと ODAT-SE フレームワークを用いてプログラムを作成し、解析を行います。逆問題解析アルゴリズムは import するモジュールで選択します。プログラム中に入力データの生成を組み込むなど、柔軟な使い方ができます。
 ライブラリの利用方法については以降の章で説明します。
 
 
 アンインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2DMAT-Functions モジュールおよび 2DMAT モジュールをアンインストールするには、以下のコマンドを実行します。
+ODAT-SE-template モジュールおよび ODAT-SE モジュールをアンインストールするには、以下のコマンドを実行します。
 
 .. code-block:: bash
 
-    $ python3 -m pip uninstall py2dmat-function py2dmat
+    $ python3 -m pip uninstall ODAT-SE-template ODAT-SE

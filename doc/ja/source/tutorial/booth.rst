@@ -1,7 +1,7 @@
 関数の追加
 ================================
 
-ここでは、2DMAT-Functions モジュールを用いて、ユーザが新しい関数を作成して解析を行う手順を説明します。例として次の Booth 関数
+ここでは、ODAT-SE-template モジュールを用いて、ユーザが新しい関数を作成して解析を行う手順を説明します。例として次の Booth 関数
 
 .. math::
 
@@ -36,14 +36,14 @@
   
 プログラムの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-``booth.py`` では、2DMAT-Functions を利用して Booth 関数を計算する順問題ソルバークラスを定義します。プログラムの全体を以下に示します。
+``booth.py`` では、ODAT-SE-template を利用して Booth 関数を計算する順問題ソルバークラスを定義します。プログラムの全体を以下に示します。
 
 .. code-block:: python
 
     import numpy as np
-    import py2dmat.extra.function
+    import odatse.extra.template
 
-    class Booth(py2dmat.extra.function.Solver):
+    class Booth(odatse.extra.template.Solver):
         def evaluate(self, xs: np.ndarray, args=()):
             assert xs.shape[0] == 2
             x, y = xs
@@ -51,9 +51,9 @@
             return fx
 
 プログラムでは、まず必要なモジュールを import します。
-``py2dmat.extra.function`` は 2DMAT-Functions モジュールです。
+``odatse.extra.template`` は ODAT-SE-template モジュールです。
 
-次に、2DMAT-Functions の ``Solver`` クラスを基底クラスとして ``Booth`` クラスを作成します。
+次に、ODAT-SE-template の ``Solver`` クラスを基底クラスとして ``Booth`` クラスを作成します。
 関数値を評価するメソッドを ``evaluate(self, xs, args) -> float`` として定義します。
 ``evaluate`` の引数は、パラメータ値を表す ``numpy.ndarray`` 型の引数 ``xs`` と、 ``Tuple`` 型のオプションパラメータ ``args`` です。
 ``args`` はステップ数 ``step`` と n巡目を表す ``set`` からなり、必要に応じてクラス内で使用します。
@@ -65,20 +65,20 @@
 
     import numpy as np
 
-    import py2dmat
-    import py2dmat.algorithm.min_search as min_search
+    import odatse
+    import odatse.algorithm.min_search as min_search
     from booth import Booth
 
-    info = py2dmat.Info.from_file("input.toml")
+    info = odatse.Info.from_file("input.toml")
     solver = Booth(info)
-    runner = py2dmat.Runner(solver, info)
+    runner = odatse.Runner(solver, info)
 
     alg = min_search.Algorithm(info, runner)
     alg.main()
 
 プログラム中ではまず、解析で利用するクラスのインスタンスを作成します。
 
-- ``py2dmat.Info`` クラス
+- ``odatse.Info`` クラス
 
   パラメータを格納するクラスです。 ``from_file`` クラスメソッドに TOML ファイルのパスを渡して作成することができます。
 
@@ -86,11 +86,11 @@
 
   上記で作成した booth.py から Booth クラスを import してインスタンスを作成します。
 
-- ``py2dmat.Runner`` クラス
+- ``odatse.Runner`` クラス
 
   順問題ソルバーと逆問題解析アルゴリズムを繋ぐクラスです。Solver クラスのインスタンスおよび Info クラスのパラメータを渡して作成します。
 
-- ``py2dmat.algorithm.min_search.Algorithm`` クラス
+- ``odatse.algorithm.min_search.Algorithm`` クラス
 
   逆問題解析アルゴリズムのクラスです。ここでは Nelder-Mead法による最適化アルゴリズムのクラスモジュール ``min_search`` を利用します。Runner のインスタンスを渡して作成します。
 

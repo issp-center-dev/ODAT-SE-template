@@ -6,9 +6,9 @@
 Tutorials
 ================================
 
-In this tutorial, we will instruct how to use 2DMAT and 2DMAT-Functions modules, considering the minimization problem of Himmelblau function as an example.
+In this tutorial, we will instruct how to use ODAT-SE and ODAT-SE-template modules, considering the minimization problem of Himmelblau function as an example.
 
-For the inverse problem algorithm we adopt the grid search provided as ``mapper`` module. See the 2DMAT manual for other algorithms.
+For the inverse problem algorithm we adopt the grid search provided as ``mapper`` module. See the ODAT-SE manual for other algorithms.
 
 
 .. toctree::

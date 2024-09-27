@@ -1,7 +1,7 @@
 Minimization of Himmelblau function
 ================================================================
 
-In this tutorial, we will write a user program using 2DMAT-Functions module and perform analyese. As an example, we adopt the Nelder-Mead method for the inverse problem algorithm.
+In this tutorial, we will write a user program using ODAT-SE-template module and perform analyese. As an example, we adopt the Nelder-Mead method for the inverse problem algorithm.
 
 
 Location of the sample files
@@ -32,20 +32,20 @@ The following sections describe these files and then show the actual calculation
 Description of main program
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``main.py`` is a simple program for the analyses using 2DMAT-Functions module.
+``main.py`` is a simple program for the analyses using ODAT-SE-template module.
 The entire source file is shown as follows:
 
 .. code-block:: python
 
     import numpy as np
 
-    import py2dmat
-    import py2dmat.algorithm.mapper_mpi as mapper
-    from py2dmat.extra.function import Himmelblau
+    import odatse
+    import odatse.algorithm.mapper_mpi as mapper
+    from odatse.extra.template import Himmelblau
 
-    info = py2dmat.Info.from_file("input.toml")
+    info = odatse.Info.from_file("input.toml")
     solver = Himmelblau(info)
-    runner = py2dmat.Runner(solver, info)
+    runner = odatse.Runner(solver, info)
 
     alg = mapper.Algorithm(info, runner)
     alg.main()
@@ -53,30 +53,30 @@ The entire source file is shown as follows:
 
 At the beginning of the program, the required modules are imported as listed below.
 
-- ``py2dmat`` for the main module of 2DMAT.
+- ``odatse`` for the main module of ODAT-SE.
 
-- ``py2dmat.algorithm.mapper_mpi`` for the module of the inverse problem algorithm.
+- ``odatse.algorithm.mapper_mpi`` for the module of the inverse problem algorithm.
 
-- ``Himmelblau`` class from ``py2dmat.extra.function`` module.
+- ``Himmelblau`` class from ``odatse.extra.template`` module.
 
 Next, the instances of the classes are created.
 
-- ``py2dmat.Info`` class
+- ``odatse.Info`` class
 
   This class is for storing the parameters.
   An instance is created by calling a class method ``from_file`` with a path to TOML file as an argument.
 
 - ``Himmelblau`` class
 
-  This class is for the Himmelblau function defined in the 2DMAT-Functions module.
+  This class is for the Himmelblau function defined in the ODAT-SE-template module.
   An instance is created by passing an instance of Info class.
 
-- ``py2dmat.Runner`` class
+- ``odatse.Runner`` class
 
   This class is for connecting the direct problem solver and the inverse problem algorithm.
   An instance is created by passing an instance of Solver class and an instance of Info class.
 
-- ``py2dmat.algorithm.min_search.Algorithm`` class
+- ``odatse.algorithm.min_search.Algorithm`` class
 
   This class is for the inverse problem algorithm.
   In this tutorial, we use ``min_search`` module that implements the optimization by Nelder-Mead method.
