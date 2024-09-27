@@ -1,15 +1,15 @@
 お問い合わせ
 =========================================
 
-2DMAT-Functions に関するお問い合わせはこちらにお寄せください。
+ODAT-SE-template に関するお問い合わせはこちらにお寄せください。
 
 - バグ報告
 
-  2DMAT-Functions のバグ関連の報告は `GitHubのIssues <https://github.com/issp-center-dev/2DMAT/releases>`_ で受け付けています。
+  ODAT-SE-template のバグ関連の報告は `GitHubのIssues <https://github.com/issp-center-dev/ODAT-SE-template/issues>`_ で受け付けています。
 
   バグを早期に解決するため、報告時には次のガイドラインに従ってください。
      
-     - 使用している 2DMAT-Functions のバージョンを指定してください。
+     - 使用している ODAT-SE-template, ODAT-SE のバージョンを指定してください。
 
      - インストールに問題がある場合には、使用しているオペレーティングシステムとコンパイラの情報についてお知らせください。
 

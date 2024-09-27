@@ -1,7 +1,7 @@
 import numpy as np
-import odatse.extra.template as function
+import odatse.extra.template
 
-class Booth(function.Solver):
+class Booth(odatse.extra.template.Solver):
     def evaluate(self, xs: np.ndarray, args=()):
         assert xs.shape[0] == 2
         x, y = xs

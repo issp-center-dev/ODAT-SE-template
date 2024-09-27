@@ -1,7 +1,7 @@
 Himmelblau関数の最小化
 ================================
 
-ここでは、2DMAT-Functions モジュールを用いたユーザプログラムを作成し、解析を行う方法を説明します。逆問題アルゴリズムは例としてNelder-Mead法を用います。
+ここでは、ODAT-SE-template モジュールを用いたユーザプログラムを作成し、解析を行う方法を説明します。逆問題アルゴリズムは例としてNelder-Mead法を用います。
 
 
 サンプルファイルの場所
@@ -31,47 +31,47 @@ Himmelblau関数の最小化
 プログラムの説明
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``main.py`` は 2DMAT-Functions モジュールを用いて解析を行うシンプルなプログラムです。
+``main.py`` は ODAT-SE-template モジュールを用いて解析を行うシンプルなプログラムです。
 プログラムの全体を以下に示します。
 
 .. code-block:: python
 
     import numpy as np
 
-    import py2dmat
-    import py2dmat.algorithm.mapper_mpi as mapper
-    from py2dmat.extra.function import Himmelblau
+    import odatse
+    import odatse.algorithm.mapper_mpi as mapper
+    from odatse.extra.template import Himmelblau
 
-    info = py2dmat.Info.from_file("input.toml")
+    info = odatse.Info.from_file("input.toml")
     solver = Himmelblau(info)
-    runner = py2dmat.Runner(solver, info)
+    runner = odatse.Runner(solver, info)
 
     alg = mapper.Algorithm(info, runner)
     alg.main()
 
 プログラムではまず、必要なモジュールを import します。
 
-- 2DMAT のメインモジュール ``py2dmat``
+- ODAT-SE のメインモジュール ``odatse``
 
-- 今回利用する逆問題解析アルゴリズム ``py2dmat.algorithm.mapper_mpi``
+- 今回利用する逆問題解析アルゴリズム ``odatse.algorithm.mapper_mpi``
 
-- 順問題ソルバーモジュール ``py2dmat.extra.function`` から Himmelblau クラス
+- 順問題ソルバーモジュール ``odatse.extra.template`` から Himmelblau クラス
 
 次に、解析で利用するクラスのインスタンスを作成します。
 
-- ``py2dmat.Info`` クラス
+- ``odatse.Info`` クラス
 
   パラメータを格納するクラスです。 ``from_file`` クラスメソッドに TOML ファイルのパスを渡して作成することができます。
 
 - ``Himmelblau`` クラス
 
-  2DMAT-Functions に用意されている Himmelblau関数のクラスです。Info クラスのインスタンスを渡して作成します。
+  ODAT-SE-template に用意されている Himmelblau関数のクラスです。Info クラスのインスタンスを渡して作成します。
 
-- ``py2dmat.Runner`` クラス
+- ``odatse.Runner`` クラス
 
   順問題ソルバーと逆問題解析アルゴリズムを繋ぐクラスです。Solver クラスのインスタンスおよび Info クラスのパラメータを渡して作成します。
 
-- ``py2dmat.algorithm.mapper_mpi.Algorithm`` クラス
+- ``odatse.algorithm.mapper_mpi.Algorithm`` クラス
 
   逆問題解析アルゴリズムのクラスです。ここではグリッド全探索のクラスモジュール ``mapper_mpi`` を利用します。Runner のインスタンスを渡して作成します。
 

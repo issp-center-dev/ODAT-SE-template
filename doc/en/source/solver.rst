@@ -1,9 +1,9 @@
 Predefined functions
 ================================
 
-``2DMAT-Functions`` module provides ``Solver`` that computes a predefined benchmark function :math:`f(x)` for evaluating the performance of search algorithms.
+ODAT-SE-template module provides ``Solver`` that computes a predefined benchmark function :math:`f(x)` for evaluating the performance of search algorithms.
 
-Each function is implemented as a class that can be used for a direct solver of 2DMAT.
+Each function is implemented as a class that can be used for a direct solver of ODAT-SE.
 The predefined functions are listed as follows.
 
 - ``Quadratics``

@@ -1,4 +1,4 @@
-Installation of 2DMAT-Functions
+Installation of ODAT-SE-template
 ================================================================
 
 Prerequisites
@@ -10,30 +10,30 @@ Prerequisites
     - tomli >= 1.2
     - numpy >= 1.14
 
-- py2dmat version 3.0 and later
+- ODAT-SE version 3.0 and later
 
 
 How to download and install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Install py2dmat
+1. Install ODAT-SE
 
    - From source files:
 
-     Download source files of py2dmat from the repository as follows:
+     Download source files of ODAT-SE from the repository as follows:
 
      .. code-block:: bash
 
-	$ git clone -b update https://github.com/issp-center-dev/2DMAT.git
+	$ git clone https://github.com/issp-center-dev/ODAT-SE.git
 
-     Install py2dmat using ``pip`` command:
+     Install ODAT-SE using ``pip`` command:
 
      .. code-block:: bash
 
-	$ cd 2DMAT
+	$ cd ODAT-SE
 	$ python3 -m pip install .
 
-     You may add ``--user`` option to install py2dmat locally (in ``$HOME/.local``).
+     You may add ``--user`` option to install ODAT-SE locally (in ``$HOME/.local``).
 
      If you run the following command instead, optional packages will also be installed at the same time.
 
@@ -41,26 +41,27 @@ How to download and install
 
 	$ python3 -m pip install .[all]
 
-2. Install py2dmat-function
+2. Install ODAT-SE-template
 
    - From source files:
 
-     At present, the source files of 2dmat-functions are placed in ``extra`` directory of py2dmat source package. After obtaining the source files following the step 1, install 2dmat-functions using ``pip`` command as follows:
+     The source files of ODAT-SE-template are available from the GitHub repository. After obtaining the source files, install ODAT-SE-template using ``pip`` command as follows:
 
      .. code-block:: bash
 
-	$ cd 2DMAT/extra/function
+	$ git clone https://github.com/issp-center-dev/ODAT-SE-template.git
+	$ cd ODAT-SE-template
 	$ python3 -m pip install .
 
      You may add ``--user`` option to install the package locally (in ``$HOME/.local``).
 
-     Then, the library of 2DMAT-Functions wil be installed.
+     Then, the library of ODAT-SE-template wil be installed.
 
 
 How to run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In 2DMAT, the analysis is done by using a predefined optimization algorithm and a direct problem solver.
-The ways to do analyses of Functions is to write a program for the analysis with 2DMAT-Functions library and 2DMAT framework.
+In ODAT-SE, the analysis is done by using a predefined optimization algorithm and a direct problem solver.
+The ways to do analyses of functions is to write a program for the analysis with ODAT-SE-template library and ODAT-SE framework.
 The type of the inverse problem algorithms can be chosen by importing the appropriate module.
 A flexible use would be possible, for example, to include data generation within the program.
 The types of parameters and the instruction to use the library will be given in the subsequent sections.
@@ -68,8 +69,8 @@ The types of parameters and the instruction to use the library will be given in 
 
 How to uninstall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In order to uninstall 2DMAT-Functions and 2DMAT modules, type the following commands:
+In order to uninstall ODAT-SE-template and 2DMAT modules, type the following commands:
 
 .. code-block:: bash
 
-   $ python3 -m pip uninstall py2dmat-function py2dmat
+   $ python3 -m pip uninstall ODAT-SE-template ODAT-SE
