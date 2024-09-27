@@ -15,18 +15,15 @@
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
 import numpy as np
-import py2dmat
 from .function import Solver
 
-def quartics(xs: np.ndarray) -> float:
-    """quartic function with two minimum
+def quadratics(xs: np.ndarray) -> float:
+    """quadratic (sphear) function
 
-    It has two global minimum f(xs)=0 at xs = [1,1,...,1] and [0,0,...,0].
-    It has one suddle point f(0,0,...,0) = 1.0.
+    It has one global miminum f(xs)=0 at xs = [0,0,...,0].
     """
+    return np.sum(xs * xs)
 
-    return np.mean((xs - 1.0) ** 2) * np.mean((xs + 1.0) ** 2)
-
-class Quartics(Solver):
+class Quadratics(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=quartics)
+        super().__init__(info, fn=quadratics)
