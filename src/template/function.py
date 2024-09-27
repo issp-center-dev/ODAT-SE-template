@@ -16,18 +16,18 @@
 
 import os
 import numpy as np
-import py2dmat
+import odatse
 
 # type hints
 from pathlib import Path
 from typing import Callable, Optional, Dict, Tuple
 
 
-class Solver(py2dmat.solver.SolverBase):
+class Solver(odatse.solver.SolverBase):
     _func: Optional[Callable[[np.ndarray], float]]
 
     def __init__(self,
-                 info: Optional[py2dmat.Info] = None,
+                 info: Optional[odatse.Info] = None,
                  fn: Optional[Callable[[np.ndarray], float]] = None) -> None:
         """
         Initialize the solver.

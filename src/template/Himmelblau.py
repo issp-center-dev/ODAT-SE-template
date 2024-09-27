@@ -15,16 +15,18 @@
 # along with this program. If not, see http://www.gnu.org/licenses/.
 
 import numpy as np
-import py2dmat
 from .function import Solver
 
-def rosenbrock(xs: np.ndarray) -> float:
-    """Rosenbrock's function
+def himmelblau(xs: np.ndarray) -> float:
+    """Himmelblau's function
 
-    It has one global minimum f(xs) = 0 at xs=[1,1,...,1].
+    It has four global minima f(xs) = 0 at
+    xs=[3,2], [-2.805118..., 3.131312...], [-3.779310..., -3.2831860], and [3.584428..., -1.848126...].
     """
-    return np.sum(100.0 * (xs[1:] - xs[:-1] ** 2) ** 2 + (1.0 - xs[:-1]) ** 2)
+    assert xs.shape[0] == 2, f"ERROR: himmelblau expects d=2 input, but receives d={xs.shape[0]} one"
+    x, y = xs
+    return (x ** 2 + y - 11.0) ** 2 + (x + y ** 2 - 7.0) ** 2
 
-class Rosenbrock(Solver):
+class Himmelblau(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=rosenbrock)
+        super().__init__(info, fn=himmelblau)
