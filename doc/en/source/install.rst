@@ -3,12 +3,12 @@ Installation of ODAT-SE-template
 
 Prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-- Python3 (>=3.6.8)
+- Python3 (>=3.9)
 
   - The following Python packages are required.
 
-    - tomli >= 1.2
     - numpy >= 1.14
+    - tomli >= 1.2
 
 - ODAT-SE version 3.0 and later
 
