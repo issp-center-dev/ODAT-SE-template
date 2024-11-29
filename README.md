@@ -5,7 +5,7 @@ Open Data Analysis Tool for Science and Engineering (ODAT-SE) is an open platfor
 ### Prerequisites
 
 - Required
-  - Python >= 3.6.8
+  - Python >= 3.9
   - numpy >= 1.14
   - tomli >= 1.2.0
   - ODAT-SE >= 3.0
