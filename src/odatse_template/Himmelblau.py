@@ -1,5 +1,5 @@
-# 2DMAT -- Data-analysis software of quantum beam diffraction experiments for 2D material structure
-# Copyright (C) 2020- The University of Tokyo
+# ODAT-SE-template -- Solver templates for open data analysis platform ODAT-SE
+# Copyright (C) 2024- The University of Tokyo
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,15 +17,16 @@
 import numpy as np
 from .function import Solver
 
-def quartics(xs: np.ndarray) -> float:
-    """quartic function with two minimum
+def himmelblau(xs: np.ndarray) -> float:
+    """Himmelblau's function
 
-    It has two global minimum f(xs)=0 at xs = [1,1,...,1] and [0,0,...,0].
-    It has one suddle point f(0,0,...,0) = 1.0.
+    It has four global minima f(xs) = 0 at
+    xs=[3,2], [-2.805118..., 3.131312...], [-3.779310..., -3.2831860], and [3.584428..., -1.848126...].
     """
+    assert xs.shape[0] == 2, f"ERROR: himmelblau expects d=2 input, but receives d={xs.shape[0]} one"
+    x, y = xs
+    return (x ** 2 + y - 11.0) ** 2 + (x + y ** 2 - 7.0) ** 2
 
-    return np.mean((xs - 1.0) ** 2) * np.mean((xs + 1.0) ** 2)
-
-class Quartics(Solver):
+class Himmelblau(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=quartics)
+        super().__init__(info, fn=himmelblau)

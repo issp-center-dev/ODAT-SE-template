@@ -1,5 +1,5 @@
-# 2DMAT -- Data-analysis software of quantum beam diffraction experiments for 2D material structure
-# Copyright (C) 2020- The University of Tokyo
+# ODAT-SE-template -- Solver templates for open data analysis platform ODAT-SE
+# Copyright (C) 2024- The University of Tokyo
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,18 +17,15 @@
 import numpy as np
 from .function import Solver
 
-def ackley(xs: np.ndarray) -> float:
-    """Ackley's function in arbitrary dimension
+def quartics(xs: np.ndarray) -> float:
+    """quartic function with two minimum
 
-    It has one global minimum f(xs)=0 at xs=[0,0,...,0].
-    It has many local minima.
+    It has two global minimum f(xs)=0 at xs = [1,1,...,1] and [0,0,...,0].
+    It has one suddle point f(0,0,...,0) = 1.0.
     """
-    a = np.mean(xs ** 2)
-    a = 20 * np.exp(-0.2 * np.sqrt(a))
-    b = np.cos(2.0 * np.pi * xs)
-    b = np.exp(0.5 * np.sum(b))
-    return 20.0 + np.exp(1.0) - a - b
 
-class Ackley(Solver):
+    return np.mean((xs - 1.0) ** 2) * np.mean((xs + 1.0) ** 2)
+
+class Quartics(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=ackley)
+        super().__init__(info, fn=quartics)

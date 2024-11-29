@@ -2,7 +2,7 @@ import numpy as np
 
 import odatse
 import odatse.algorithm.mapper_mpi as mapper
-import odatse.extra.template as function
+import odatse_template as function
 
 info = odatse.Info.from_file("input.toml")
 solver = function.Himmelblau(info)

@@ -1,5 +1,5 @@
-# 2DMAT -- Data-analysis software of quantum beam diffraction experiments for 2D material structure
-# Copyright (C) 2020- The University of Tokyo
+# ODAT-SE-template -- Solver templates for open data analysis platform ODAT-SE
+# Copyright (C) 2024- The University of Tokyo
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,13 +17,18 @@
 import numpy as np
 from .function import Solver
 
-def rosenbrock(xs: np.ndarray) -> float:
-    """Rosenbrock's function
+def ackley(xs: np.ndarray) -> float:
+    """Ackley's function in arbitrary dimension
 
-    It has one global minimum f(xs) = 0 at xs=[1,1,...,1].
+    It has one global minimum f(xs)=0 at xs=[0,0,...,0].
+    It has many local minima.
     """
-    return np.sum(100.0 * (xs[1:] - xs[:-1] ** 2) ** 2 + (1.0 - xs[:-1]) ** 2)
+    a = np.mean(xs ** 2)
+    a = 20 * np.exp(-0.2 * np.sqrt(a))
+    b = np.cos(2.0 * np.pi * xs)
+    b = np.exp(0.5 * np.sum(b))
+    return 20.0 + np.exp(1.0) - a - b
 
-class Rosenbrock(Solver):
+class Ackley(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=rosenbrock)
+        super().__init__(info, fn=ackley)

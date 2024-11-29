@@ -57,7 +57,7 @@ ODAT-SE-template
 
 ODAT-SE
 
-- v3.0.0 : 2024-XX-XX
+- v3.0.0 : 2024-11-25
 
 2DMAT
 

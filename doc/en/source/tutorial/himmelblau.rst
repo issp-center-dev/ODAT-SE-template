@@ -41,7 +41,7 @@ The entire source file is shown as follows:
 
     import odatse
     import odatse.algorithm.mapper_mpi as mapper
-    from odatse.extra.template import Himmelblau
+    from odatse_template import Himmelblau
 
     info = odatse.Info.from_file("input.toml")
     solver = Himmelblau(info)
@@ -57,7 +57,7 @@ At the beginning of the program, the required modules are imported as listed bel
 
 - ``odatse.algorithm.mapper_mpi`` for the module of the inverse problem algorithm.
 
-- ``Himmelblau`` class from ``odatse.extra.template`` module.
+- ``Himmelblau`` class from ``odatse_template`` module.
 
 Next, the instances of the classes are created.
 

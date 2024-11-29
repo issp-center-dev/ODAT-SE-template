@@ -45,9 +45,9 @@ The entire program is shown as follows:
 .. code-block:: python
 
     import numpy as np
-    import odatse.extra.template
+    import odatse_template
 
-    class Booth(odatse.extra.template.Solver):
+    class Booth(odatse_template.Solver):
         def evaluate(self, xs: np.ndarray, args=()):
             assert xs.shape[0] == 2
             x, y = xs
@@ -55,7 +55,7 @@ The entire program is shown as follows:
             return fx
 
 First, the required modules are imported.
-``odatse.extra.template`` corresponds to ODAT-SE-template module.
+``odatse_template`` corresponds to ODAT-SE-template module.
 
 Next, ``Booth`` class is defined as derived from ``Solver`` class of ODAT-SE-template.
 The direct problem solver class must have a method called ``evaluate`` which have the form ``evaluate(self, xs, args) -> float``.
@@ -150,38 +150,35 @@ The standard output will look as follows.
 
 .. code-block::
 
+    seed            : 12345
+    param.max_list  : [6.0, 6.0]
+    param.min_list  : [-6.0, -6.0]
+    param.num_list  : [31, 31]
+    eval: x=[ 4.65539311 -1.82849335], fun=42.18090340923334
+    eval: x=[ 4.40539311 -1.26599335], fun=32.757932511152575
+    eval: x=[ 3.28039311 -0.73474335], fun=27.60903898676813
+    eval: x=[2.21789311 0.65588165], fun=12.051687537789377
+    eval: x=[2.21789311 0.65588165], fun=12.051687537789377
+    eval: x=[0.03039311 2.57775665], fun=8.867415220676182
+    eval: x=[1.18664311 2.47619415], fun=0.7639230444822191
+    eval: x=[1.18664311 2.47619415], fun=0.7639230444822191
+    eval: x=[1.18664311 2.47619415], fun=0.7639230444822191
+    eval: x=[1.18664311 2.47619415], fun=0.7639230444822191
+    ...
+    eval: x=[1.00007302 2.99985612], fun=4.6118922768260166e-08
+    eval: x=[0.99997645 3.00001226], fun=1.2142360244883376e-09
+    eval: x=[0.99997645 3.00001226], fun=1.2142360244883376e-09
+    eval: x=[0.99997645 3.00001226], fun=1.2142360244883376e-09
+    eval: x=[0.99997645 3.00001226], fun=1.2142360244883376e-09
+    eval: x=[0.99997645 3.00001226], fun=1.2142360244883376e-09
     Optimization terminated successfully.
              Current function value: 0.000000
              Iterations: 44
              Function evaluations: 82
-    iteration: 44
-    len(allvecs): 45
-    step: 0
-    allvecs[step]: [ 5.15539311 -2.20349335]
-    step: 1
-    allvecs[step]: [ 4.65539311 -1.82849335]
-    step: 2
-    allvecs[step]: [ 4.40539311 -1.26599335]
-    step: 3
-    allvecs[step]: [ 3.28039311 -0.73474335]
-    step: 4
-    allvecs[step]: [2.21789311 0.65588165]
-    step: 5
-    allvecs[step]: [2.21789311 0.65588165]
-    ...
-    step: 42
-    allvecs[step]: [0.99997645 3.00001226]
-    step: 43
-    allvecs[step]: [0.99997645 3.00001226]
     end of run
-    Current function value: 1.2142360244883376e-09
-    Iterations: 44
-    Function evaluations: 82
-    Solution:
-    x1 = 0.9999764520155436
-    x2 = 3.000012263854959
 
-``x1`` and ``x2`` are the candidate parameters at each step.
+
+``x=`` denotes the candidate parameters at each step, and ``fun=`` denotes the value of the objective function at that point.
 The final estimated parameters will be written in ``output/res.dat``.
 In the current case, the following result will be obtained:
 

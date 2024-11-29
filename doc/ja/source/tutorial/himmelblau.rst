@@ -40,7 +40,7 @@ Himmelblau関数の最小化
 
     import odatse
     import odatse.algorithm.mapper_mpi as mapper
-    from odatse.extra.template import Himmelblau
+    from odatse_template import Himmelblau
 
     info = odatse.Info.from_file("input.toml")
     solver = Himmelblau(info)
@@ -55,7 +55,7 @@ Himmelblau関数の最小化
 
 - 今回利用する逆問題解析アルゴリズム ``odatse.algorithm.mapper_mpi``
 
-- 順問題ソルバーモジュール ``odatse.extra.template`` から Himmelblau クラス
+- 順問題ソルバーモジュール ``odatse_template`` から Himmelblau クラス
 
 次に、解析で利用するクラスのインスタンスを作成します。
 

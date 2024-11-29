@@ -1,5 +1,5 @@
-# 2DMAT -- Data-analysis software of quantum beam diffraction experiments for 2D material structure
-# Copyright (C) 2020- The University of Tokyo
+# ODAT-SE-template -- Solver templates for open data analysis platform ODAT-SE
+# Copyright (C) 2024- The University of Tokyo
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,16 +17,13 @@
 import numpy as np
 from .function import Solver
 
-def himmelblau(xs: np.ndarray) -> float:
-    """Himmelblau's function
+def rosenbrock(xs: np.ndarray) -> float:
+    """Rosenbrock's function
 
-    It has four global minima f(xs) = 0 at
-    xs=[3,2], [-2.805118..., 3.131312...], [-3.779310..., -3.2831860], and [3.584428..., -1.848126...].
+    It has one global minimum f(xs) = 0 at xs=[1,1,...,1].
     """
-    assert xs.shape[0] == 2, f"ERROR: himmelblau expects d=2 input, but receives d={xs.shape[0]} one"
-    x, y = xs
-    return (x ** 2 + y - 11.0) ** 2 + (x + y ** 2 - 7.0) ** 2
+    return np.sum(100.0 * (xs[1:] - xs[:-1] ** 2) ** 2 + (1.0 - xs[:-1]) ** 2)
 
-class Himmelblau(Solver):
+class Rosenbrock(Solver):
     def __init__(self, info):
-        super().__init__(info, fn=himmelblau)
+        super().__init__(info, fn=rosenbrock)
