@@ -3,7 +3,7 @@ import numpy as np
 import odatse
 #import odatse.algorithm.mapper_mpi as mapper
 import odatse.algorithm.min_search as min_search
-from odatse.extra.template import LinearRegression
+from odatse_template import LinearRegression
 import odatse.domain
 
 data = np.loadtxt("data.txt")
