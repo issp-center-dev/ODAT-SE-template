@@ -6,27 +6,16 @@ authors = ["2DMAT developers <2dmat-dev@issp.u-tokyo.ac.jp>"]
 license = "GPL-3.0-or-later"
 
 readme = "README.md"
-repository = "https://github.com/issp-center-dev/py2dmat-function"
+repository = "https://github.com/issp-center-dev/ODAT-SE-template"
 
 packages = [
-  { include = "template", from = "src", to = "odatse/extra" }
+  { include = "odatse_template", from = "src" }
   ]
 
 [tool.poetry.dependencies]
-python = ">=3.6.8"
+python = ">=3.9"
 numpy = "^1.14"
-#mpi4py = {version = "^3", optional = true}
-ODAT-SE = ">2"
-
-#[tool.poetry.extras]
-#min_search = ["scipy"]
-#bayes = ["physbo"]
-#exchange = ["mpi4py"]
-#all = ["scipy", "mpi4py", "physbo"]
-
-#[tool.poetry.dev-dependencies]
-#black = "^22.3.0"
-#pynvim = "^0.4.3"
+ODAT-SE = ">=3"
 
 #[tool.poetry.scripts]
 #py2dmat-function = "function._main:main"
