@@ -29,10 +29,11 @@ Open Data Analysis Tool for Science and Engineering (ODAT-SE) is an open platfor
 
 ### License
 
-This package is distributed under GNU General Public License version 3 (GPL v3) or later.
+This package is distributed under [Mozilla Public License v2.0 (MPL-2.0)][MPLv2].
 
 ### Copyright
 
 Copyright (c) 2024- The University of Tokyo. All rights reserved.*
 This software was developed with the support of "*Project for advancement of software usability in materials science*" of The Institute for Solid State Physics, The University of Tokyo.
 
+[MPLv2]: https://www.mozilla.org/en-US/MPL/2.0/
