@@ -21,12 +21,12 @@ ODAT-SE-template は ODAT-SE 向けの順問題として解析関数を提供す
 
 ライセンス
 --------------------------------
-| 本ソフトウェアのプログラムパッケージおよびソースコード一式はGNU
-  General Public License version 3 (GPL v3) に準じて配布されています。
+| 本ソフトウェアのプログラムパッケージおよびソースコード一式は
+  `Mozilla Public License version 2.0 (MPL-2.0) <https://www.mozilla.org/en-US/MPL/2.0/>`_ に準じて配布されています。
 
-Copyright (c) <2020-> The University of Tokyo. All rights reserved.
+Copyright (c) <2024-> The University of Tokyo. All rights reserved.
 
-本ソフトウェアは2020年度および2024年度 東京大学物性研究所 ソフトウェア高度化プロジェクトの支援を受け開発されました。
+本ソフトウェアは2020年度・2021年度・2024年度 東京大学物性研究所 ソフトウェア高度化プロジェクトの支援を受け開発されました。
 ODAT-SEを引用する際には以下の文献を引用してください。
 
 "Data-analysis software framework 2DMAT and its application to experimental measurements for two-dimensional material structures",

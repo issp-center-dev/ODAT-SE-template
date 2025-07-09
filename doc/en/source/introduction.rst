@@ -24,9 +24,9 @@ It was originally developed as a component of 2DMAT v2.x, and has been restructu
 
 License
 --------------------------------
-|  This package is distributed under GNU General Public License version 3 (GPL v3).
+|  This package is distributed under `Mozilla Public License version 2.0 (MPL-2.0) <https://www.mozilla.org/en-US/MPL/2.0/>`_.
 
-Copyright (c) <2020-> The University of Tokyo. All rights reserved.
+Copyright (c) <2024-> The University of Tokyo. All rights reserved.
 
 This software was developed with the support of "Project for advancement of software usability in materials science" of The Institute for Solid State Physics, The University of Tokyo.
 We hope that you cite the following reference when you publish the results using ODAT-SE:
